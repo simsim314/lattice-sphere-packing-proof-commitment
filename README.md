@@ -63,3 +63,17 @@ sha256sum Appendices_A_B.tex Simkin_Lattice_Sphere_Packing_Preprint.tex
 The manuscript and appendices are now being modified, reviewed, and developed collaboratively. Later versions may therefore differ from the exact versions committed above.
 
 The purpose of this repository is to preserve a public timestamped commitment to these specific file contents and to document my possession of them at or before the time of this commit.
+
+<!-- BEGIN AUTO COMMITMENTS -->
+
+## Additional cryptographic commitments
+
+SHA-256 commitments generated for files held privately/local to this repository checkout:
+
+006445340f5526554be0a1185326a718769b62d9661991330f505612ca659412  files/Appendices_A_B.tex
+233aa92e1aae7d49f9738c61b8f585e25c02423ca0a99dd7594adc2eb3f05642  files/Simkin_Lattice_Sphere_Packing_Preprint.tex
+cd6558aad76bb7c3d5106ed6dfe8897e74cba74a1c2b405efad4ab3d98febd59  files/simplified_kappa_1_divisor_star.tex
+
+Corresponding `.ots` files are OpenTimestamps proofs.
+
+<!-- END AUTO COMMITMENTS -->

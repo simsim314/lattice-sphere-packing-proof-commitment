@@ -1,0 +1,7 @@
+files/**
+!files/
+!files/**/
+!files/*.sha256
+!files/*.ots
+!files/**/*.sha256
+!files/**/*.ots
