@@ -3,27 +3,32 @@
 Public timestamp and SHA-256 commitment for candidate proofs of improved lattice sphere-packing lower bounds, including the full $\kappa=1$ logarithmic gain.
 
 **Author / originator:** Michael Simkin  
-**Date of this public commitment:** September 11, 2026
+**Initial public commitment:** September 11, 2026
 
-This repository records a public cryptographic commitment to mathematical work concerning lower bounds for lattice sphere packing.
+This repository records public cryptographic commitments to mathematical work concerning lower bounds for lattice sphere packing.
 
-I obtained proofs corresponding to the following progression:
+The source manuscripts themselves are kept private/local. For each committed source file, the repository publishes:
 
-1. A relatively simple proof giving the exponent
+- a `.sha256` file containing its SHA-256 digest;
+- an `.ots` OpenTimestamps proof.
+
+These artifacts allow the exact source file to be revealed later and cryptographically checked against the earlier public commitment.
+
+## Mathematical claim
+
+The work concerns the progression
 
 ```math
-\kappa=\frac{1}{1+e}.
+\kappa=\frac{1}{1+e},
 ```
 
-2. A more involved construction, presented in **Appendix A**, giving
+then constructions approaching
 
 ```math
-\kappa=1-\varepsilon
+\kappa=1-\varepsilon,
 ```
 
-for arbitrarily small fixed $\varepsilon>0$.
-
-3. A full $\kappa=1$ construction, presented in **Appendix B**, yielding
+and finally a candidate full $\kappa=1$ construction yielding
 
 ```math
 \Delta_d^L \ge c\,d^2\log\log d\,2^{-d}.
@@ -38,42 +43,47 @@ The claimed theorem is:
 > ```math
 > \Delta_d^L \ge c\,d^2\log\log d\,2^{-d}.
 > ```
->
-> This is the full logarithmic gain, corresponding to $\kappa=1$ in the notation
->
-> ```math
-> (\log\log d)^\kappa.
-> ```
 
-## Cryptographic commitment
+This is the full logarithmic gain, corresponding to $\kappa=1$ in the notation
 
-The following SHA-256 hashes identify the exact file contents in my possession at the time of this public commitment:
-
-```text
-006445340f5526554be0a1185326a718769b62d9661991330f505612ca659412  Appendices_A_B.tex
-233aa92e1aae7d49f9738c61b8f585e25c02423ca0a99dd7594adc2eb3f05642  Simkin_Lattice_Sphere_Packing_Preprint.tex
+```math
+(\log\log d)^\kappa.
 ```
 
-The hashes can later be verified using:
+## Cryptographic commitments
+
+### Appendices A and B
+
+- [SHA-256 commitment](files/Appendices_A_B.tex.sha256)
+- [OpenTimestamps proof](files/Appendices_A_B.tex.ots)
+
+### Main lattice sphere-packing preprint
+
+- [SHA-256 commitment](files/Simkin_Lattice_Sphere_Packing_Preprint.tex.sha256)
+- [OpenTimestamps proof](files/Simkin_Lattice_Sphere_Packing_Preprint.tex.ots)
+
+### Simplified $\kappa=1$ divisor-star construction
+
+- [SHA-256 commitment](files/simplified_kappa_1_divisor_star.tex.sha256)
+- [OpenTimestamps proof](files/simplified_kappa_1_divisor_star.tex.ots)
+
+## Verification
+
+If the corresponding original source file is available locally, its SHA-256 commitment can be checked with:
 
 ```bash
-sha256sum Appendices_A_B.tex Simkin_Lattice_Sphere_Packing_Preprint.tex
+sha256sum -c FILE.tex.sha256
 ```
 
-The manuscript and appendices are now being modified, reviewed, and developed collaboratively. Later versions may therefore differ from the exact versions committed above.
+An OpenTimestamps proof can be updated and verified with:
 
-The purpose of this repository is to preserve a public timestamped commitment to these specific file contents and to document my possession of them at or before the time of this commit.
+```bash
+ots upgrade FILE.tex.ots
+ots verify FILE.tex.ots
+```
 
-<!-- BEGIN AUTO COMMITMENTS -->
+The `.ots` proof commits to the exact contents of the corresponding source file. OpenTimestamps calendar servers aggregate commitments and anchor them into the Bitcoin blockchain.
 
-## Additional cryptographic commitments
+The manuscript and appendices may subsequently be modified, reviewed, or developed collaboratively. Later versions can therefore differ from the exact versions represented by these commitment files.
 
-SHA-256 commitments generated for files held privately/local to this repository checkout:
-
-006445340f5526554be0a1185326a718769b62d9661991330f505612ca659412  files/Appendices_A_B.tex
-233aa92e1aae7d49f9738c61b8f585e25c02423ca0a99dd7594adc2eb3f05642  files/Simkin_Lattice_Sphere_Packing_Preprint.tex
-cd6558aad76bb7c3d5106ed6dfe8897e74cba74a1c2b405efad4ab3d98febd59  files/simplified_kappa_1_divisor_star.tex
-
-Corresponding `.ots` files are OpenTimestamps proofs.
-
-<!-- END AUTO COMMITMENTS -->
+The purpose of this repository is to preserve public, independently verifiable evidence that the corresponding exact file contents existed no later than the timestamps established by these commitments.
